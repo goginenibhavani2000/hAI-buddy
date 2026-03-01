@@ -93,3 +93,6 @@ Our goal is to remove the "fear of the unknown" when opening a new project, and 
 
 - Demo Video Link : 
 - Devpost Link : 
+![alt text](image-2.png)
+![alt text](image.png)
+![alt text](image-1.png)

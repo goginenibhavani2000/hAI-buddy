@@ -19,12 +19,3 @@ def clone_repo(repo_url, dest="repo"):
     except Exception as e:
         print(f"Error cloning repo: {e}")
         return None
-
-# testing with tiny, public repo
-# if __name__ == "__main__":
-#     # PARALLEL TEST
-#     # Let's test with a tiny, public repo
-#     test_url = "https://github.com/python/mypy" 
-#     path = clone_repo(test_url, dest="testing")
-#     if path:
-#         print(f"Test Successful. Files in repo: {len(os.listdir(path))}")

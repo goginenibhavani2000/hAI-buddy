@@ -6,7 +6,7 @@ def store_summary(file_path, summary):
     Saves the AI-generated summary for a specific file into memory.
     """
     memory_store[file_path] = summary
-    print(f"🧠 Memory Updated: {file_path}")
+    print(f"Memory Updated: {file_path}")
 
 def get_all_knowledge():
     """

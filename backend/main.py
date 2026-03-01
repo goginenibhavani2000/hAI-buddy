@@ -52,7 +52,7 @@ async def explore_endpoint(request: ExploreRequest):
         target_dir = os.path.join("downloads", repo_name)
         
         if os.path.exists(target_dir):
-            print(f"♻️ Using cached version of {repo_name}")
+            print(f"Using cached version of {repo_name}")
             # Update the repo if it's already there
             subprocess.run(["git", "-C", target_dir, "pull"])
         else:

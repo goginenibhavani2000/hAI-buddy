@@ -38,7 +38,7 @@ function App() {
     const data = await response.json();
     
     if (response.ok) {
-      addLog(`✅ Exploration successful: ${data.repo}`);
+      addLog(`Exploration successful: ${data.repo}`);
       setGraphUrl(`${data.graph_url}?t=${Date.now()}`);
       setIsComplete(true);
     } else {

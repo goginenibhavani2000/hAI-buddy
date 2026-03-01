@@ -25,7 +25,7 @@ def start_exploration(graph, files_data, limit=10):
             with open(file_path, "r", errors="ignore") as f:
                 content = f.read()
             
-            print(f"📖 Analyzing: {file_path}")
+            print(f"Analyzing: {file_path}")
             summary = summarize_code(file_path, content)
             
             # Store in our Step 7 Memory

@@ -1,1 +1,1 @@
-API_URL='https://hai-buddy.onrender.com/'
+export const API_URL='https://hai-buddy.onrender.com/' || 'http://localhost:8000/';

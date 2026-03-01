@@ -71,7 +71,7 @@ async def explore_endpoint(request: ExploreRequest):
     return {
         "status": "success", 
         "files_indexed": len(files),
-        "graph_url": "http://localhost:8000/static/graph.png"
+        "graph_url": f'{BASE_URL}/static/graph.png'
     }
 @app.get("/ask")
 async def ask_endpoint(q: str = Query(..., description="User's architectural question")):

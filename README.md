@@ -91,8 +91,8 @@ Looking forward, we are excited to expand and enhance the platform:
 
 Our goal is to remove the "fear of the unknown" when opening a new project, and we remain committed to expanding hAI-buddy to support every developer's journey.
 
-- Demo Video Link : 
-- Devpost Link : 
+- Demo Video Link : https://youtu.be/7CZRs4sVHL4?si=H0oc63bp6K2l5FSk 
+- Devpost Link : https://devpost.com/software/hai-buddy
 ![alt text](image-2.png)
 ![alt text](image.png)
 ![alt text](image-1.png)

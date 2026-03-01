@@ -7,7 +7,7 @@ dotenv.load_dotenv()
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 # We use gemini-x.5-flash for speed and efficiency
-model = genai.GenerativeModel(gemini_model=os.getenv("GEMINI_MODEL"))
+model = genai.GenerativeModel(model_name=os.getenv("GEMINI_MODEL"))
 
 def summarize_code(file_path, content):
     """

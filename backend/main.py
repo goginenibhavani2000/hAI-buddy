@@ -27,6 +27,9 @@ class ExploreRequest(BaseModel):
     repo_path: str
     limit: int = 10
 
+if not os.path.exists("static"):
+    os.makedirs("static")
+    
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 import urllib.parse

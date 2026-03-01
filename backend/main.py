@@ -75,6 +75,7 @@ async def explore_endpoint(request: ExploreRequest):
     start_exploration(G, parsed_data, limit=10)
     
     return {
+        "repo": final_path,
         "status": "success", 
         "files_indexed": len(files),
         "graph_url": f"{URL}/static/graph.png"

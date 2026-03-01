@@ -12,8 +12,11 @@ from graph.dependency_graph import build_graph
 from graph.visualize import save_graph_image
 from agent.agent import start_exploration
 from agent.qa import answer_question
+from dotenv import load_dotenv
 
+load_dotenv(".env")
 app = FastAPI()
+BASE_URL = os.getenv("BASE_URL", "http://localhost:8000")
 
 # Enable CORS for frontend communication
 app.add_middleware(
@@ -46,7 +49,7 @@ async def explore_endpoint(request: ExploreRequest):
         target_dir = os.path.join("downloads", repo_name)
         
         if not os.path.exists(target_dir):
-            print(f"📡 Cloning remote repository: {decoded_path}...")
+            print(f"Cloning remote repository: {decoded_path}...")
             os.makedirs("downloads", exist_ok=True)
             subprocess.run(["git", "clone", decoded_path, target_dir])
         
@@ -71,7 +74,7 @@ async def explore_endpoint(request: ExploreRequest):
     return {
         "status": "success", 
         "files_indexed": len(files),
-        "graph_url": f'{BASE_URL}/static/graph.png'
+        "graph_url": f"{BASE_URL}/static/graph.png"
     }
 @app.get("/ask")
 async def ask_endpoint(q: str = Query(..., description="User's architectural question")):

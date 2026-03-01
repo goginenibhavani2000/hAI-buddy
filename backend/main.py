@@ -51,11 +51,15 @@ async def explore_endpoint(request: ExploreRequest):
         repo_name = decoded_path.split("/")[-1].replace(".git", "")
         target_dir = os.path.join("downloads", repo_name)
         
-        if not os.path.exists(target_dir):
+        if os.path.exists(target_dir):
+            print(f"♻️ Using cached version of {repo_name}")
+            # Update the repo if it's already there
+            subprocess.run(["git", "-C", target_dir, "pull"])
+        else:
             print(f"Cloning remote repository: {decoded_path}...")
             os.makedirs("downloads", exist_ok=True)
-            subprocess.run(["git", "clone", decoded_path, target_dir])
-        
+            subprocess.run(["git", "clone", "--depth", "1", "--single-branch", decoded_path, target_dir])
+
         final_path = target_dir
     else:
         final_path = decoded_path

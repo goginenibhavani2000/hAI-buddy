@@ -14,13 +14,12 @@ from agent.agent import start_exploration
 from agent.qa import answer_question
 from dotenv import load_dotenv
 
-load_dotenv(".env")
+
 app = FastAPI()
 
-BASE_URL = os.getenv("BASE_URL") 
-if not BASE_URL:
-    print("⚠️ WARNING: BASE_URL not found in .local.env, falling back to localhost")
-    BASE_URL = "http://localhost:8000"
+load_dotenv()
+URL = os.getenv("BASE_URL") 
+
 
 # Enable CORS for frontend communication
 app.add_middleware(
@@ -78,7 +77,7 @@ async def explore_endpoint(request: ExploreRequest):
     return {
         "status": "success", 
         "files_indexed": len(files),
-        "graph_url": f"{BASE_URL}/static/graph.png"
+        "graph_url": f"{URL}/static/graph.png"
     }
 @app.get("/ask")
 async def ask_endpoint(q: str = Query(..., description="User's architectural question")):

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Terminal, Search, Share2, MessageSquare } from 'lucide-react';
+import {Share2, MessageSquare } from 'lucide-react';
 import './App.css';
 
 function App() {
@@ -60,7 +60,7 @@ function App() {
 
   return (
     <div className="dashboard">
-      <h1 style={{ color: '#60a5fa' }}>Autonomous Codebase Explorer</h1>
+      <h1 style={{ color: '#60a5fa' }}>hAI-Buddy</h1>
 
       {/* 1. INPUT BLOCK */}
       <div className="glass-panel">

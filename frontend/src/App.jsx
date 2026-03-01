@@ -23,7 +23,7 @@ function App() {
   addLog("Sending exploration request...");
 
   try {
-    const response = await fetch("http://localhost:8000/explore", {
+    const response = await fetch(`${API_URL}/explore`,{
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +52,7 @@ function App() {
 
   const handleAsk = async () => {
     setIsAnalysing(true);
-    const res = await fetch(`http://localhost:8000/ask?q=${encodeURIComponent(question)}`);
+    const res = await fetch(`${API_URL}/ask?q=${encodeURIComponent(question)}`);
     const data = await res.json();
     setAnswer(data.answer);
     setIsAnalysing(false);

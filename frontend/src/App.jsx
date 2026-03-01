@@ -59,6 +59,24 @@ function App() {
     setIsAnalysing(false);
   };
 
+  // Helper to format answer as points and highlight file/folder names
+  const formatAnswer = (text) => {
+    if (!text) return "";
+    // Split into points by numbered/bulleted lists, newlines, or sentences
+    const points = text.split(/\n|(?<=\.)\s+(?=[A-Z0-9])|(?<=\])\s+/).filter(Boolean);
+    return (
+      <ul style={{ paddingLeft: '18px', margin: 0 }}>
+        {points.map((pt, idx) => {
+          // Highlight any file/folder/path/code
+          const highlighted = pt.replace(/([\w\-/]+\.(py|js|ts|md|json|txt|csv|yml|yaml|sh|ipynb))|([\w\-/]+\/)|(`[^`]+`)/g, match => {
+            return `<span style=\"color:#2563eb;font-weight:500\">${match}</span>`;
+          });
+          return <li key={idx} dangerouslySetInnerHTML={{ __html: highlighted }} />;
+        })}
+      </ul>
+    );
+  };
+
   return (
     <div className="dashboard" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 40px', minHeight: '100vh', boxSizing: 'border-box' }}>
       <h1 style={{ color: '#60a5fa', textAlign: 'center', marginTop: '32px' }}>hAI-Buddy</h1>
@@ -140,7 +158,7 @@ function App() {
             <button onClick={handleAsk} style={{ width: '100%', marginTop: '10px', background: '#60a5fa', color: 'white', borderRadius: '8px', border: 'none', padding: '10px' }}>Ask Agent</button>
             <div style={{ marginTop: '20px', padding: '10px', background: '#FFEFF1', borderRadius: '8px', fontSize: '14px', textAlign: 'left', flex: 1, color: '#1e293b' }}>
               <strong>Agent Answer:</strong>
-              <p>{answer || ""}</p>
+              {formatAnswer(answer)}
             </div>
           </div>
         </div>

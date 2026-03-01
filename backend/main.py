@@ -16,7 +16,11 @@ from dotenv import load_dotenv
 
 load_dotenv(".env")
 app = FastAPI()
-BASE_URL = os.getenv("BASE_URL", "http://localhost:8000")
+
+BASE_URL = os.getenv("BASE_URL") 
+if not BASE_URL:
+    print("⚠️ WARNING: BASE_URL not found in .local.env, falling back to localhost")
+    BASE_URL = "http://localhost:8000"
 
 # Enable CORS for frontend communication
 app.add_middleware(

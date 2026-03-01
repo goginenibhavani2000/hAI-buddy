@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import {Share2, MessageSquare } from 'lucide-react';
 import './App.css';
+import { API_URL } from './config';
 
 function App() {
   const [repoUrl, setRepoUrl] = useState("");
